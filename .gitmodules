@@ -1,0 +1,18 @@
+[submodule "HCP_Latticeparameter_0K"]
+	path = HCP_Latticeparameter_0K
+	url = https://github.com/sauravkumar4003/HCP_Latticeparameter_0K.git
+[submodule "HCP_Latticeparameter_Finitetemperature"]
+	path = HCP_Latticeparameter_Finitetemperature
+	url = https://github.com/sauravkumar4003/HCP_Latticeparameter_Finitetemperature.git
+[submodule "HCP_Elastic-constants_0K"]
+	path = HCP_Elastic-constants_0K
+	url = https://github.com/sauravkumar4003/HCP_Elastic-constants_0K.git
+[submodule "HCP_Elastic-constants_Finitetemperature"]
+	path = HCP_Elastic-constants_Finitetemperature
+	url = https://github.com/sauravkumar4003/HCP_Elastic-constants_Finitetemperature.git
+[submodule "HCP_STGB_MIn_Energy"]
+	path = HCP_STGB_MIn_Energy
+	url = https://github.com/sauravkumar4003/HCP_STGB_MIn_Energy.git
+[submodule "HCP_STGB_tensile"]
+	path = HCP_STGB_tensile
+	url = https://github.com/sauravkumar4003/HCP_STGB_tensile.git
