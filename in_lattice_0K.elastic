@@ -1,0 +1,37 @@
+# Ti alpha phase (hcp)
+
+units		metal
+boundary	p p p
+
+atom_style	atomic
+lattice		custom 3.193 a1 0.5 -0.866025 0 a2 0.5 0.866025 0 a3 0 0 1.620 basis 0.333333 0.666666 0.25 basis 0.666666 0.333333 0.75  
+#read_data Mg.lmp
+region box block 0 5 0 5 0 5  
+create_box             1 box
+create_atoms           1 box 
+pair_style meam/c
+pair_coeff * *  library.meam.txt Mg Mg.meam.txt Mg 
+mass            * 24.305
+timestep 0.001
+compute new all temp
+compute msd1 all msd
+compute eng all pe/atom
+compute                eatoms all reduce sum c_eng
+fix 1 all box/relax iso 0.0 vmax 0.001
+thermo 10 
+thermo_style custom step pe lx ly lz press temp pxx pyy pzz c_eatoms 
+dump        1 all cfg 100 dump.1.*.cfg mass type xs ys zs id c_eng 
+min_style cg 
+minimize 1e-25 1e-25 5000 10000 
+
+variable natoms equal "count(all)" 
+variable teng equal "c_eatoms"
+variable length equal "lx/5"
+variable ecoh equal "v_teng/v_natoms"
+
+print "Total energy (eV) = ${teng};"
+print "Number of atoms = ${natoms};"
+print "Lattice constant (Angstoms) = ${length};"
+print "Cohesive energy (eV) = ${ecoh};"
+
+print "All done!" 
